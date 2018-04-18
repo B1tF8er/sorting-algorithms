@@ -1,5 +1,24 @@
 (function sortingAlgorithmsModule(totalItems) {
     /**
+     * Names of the algorithms
+     */
+    const names = {
+        BubbleSort: 'Bubble sort',
+        InsertionSort: 'Insertion sort',
+        SelectionSort: 'Selection sort',
+        MergeSort: 'Merge sort',
+        QuickSort: 'Quick sort'
+    };
+
+    /**
+     * Types of algorithms
+     */
+    const types = {
+        Linear: 'Linear',
+        Divide: 'Divide and conquer'
+    };
+
+    /**
      * LINEAR
      * Worst case performance: O(n^2) - not good for large unsorted data sets
      * Average case performance: O(n^2) - not good for large unsorted data sets
@@ -26,7 +45,9 @@
         }
 
         const API = {
-            sort: sort
+            name: names.BubbleSort,
+            sort: sort,
+            type: types.Linear
         };
 
         return API;
@@ -64,7 +85,9 @@
         }
 
         const API = {
-            sort: sort
+            name: names.InsertionSort,
+            sort: sort,
+            type: types.Linear
         };
 
         return API;
@@ -93,7 +116,9 @@
         }
 
         const API = {
-            sort: sort
+            name: names.SelectionSort,
+            sort: sort,
+            type: types.Linear
         };
 
         return API;
@@ -133,9 +158,10 @@
         }
 
         const API = {
-            sort: sort
+            name: names.MergeSort,
+            sort: sort,
+            type: types.Divide
         };
-
         return API;
     })();
 
@@ -223,7 +249,9 @@
         }
 
         const API = {
-            sort: sort
+            name: names.QuickSort,
+            sort: sort,
+            type: types.Divide
         };
 
         return API;
@@ -233,52 +261,24 @@
      * Runs all sorting algorithms
      */
     (function testSortingAlgorithms() {
-        var createValues = function createItemsToTest() {
-            var items = [];
+        const createValues = () => {
+            let items = [];
 
-            for (var i = 0; i < totalItems; i++) {
+            for (let i = 0; i < totalItems; i++) {
                 items[i] = Math.floor(Math.random() * Math.floor(totalItems));
             }
 
             return items;
         };
 
-        const algorithms = [{
-                name: 'Bubble sort',
-                sort: bubbleSort.sort,
-                type: 'Linear'
-            },
-            {
-                name: 'Insertion sort',
-                sort: insertionSort.sort,
-                type: 'Linear'
-            },
-            {
-                name: 'Selection sort',
-                sort: selectionSort.sort,
-                type: 'Linear'
-            },
-            {
-                name: 'Merge sort',
-                sort: mergeSort.sort,
-                type: 'Divide and conquer'
-            },
-            {
-                name: 'Quick sort',
-                sort: quickSort.sort,
-                type: 'Divide and conquer'
-            }
-        ];
-
         (function run() {
             console.log(`total items: ${totalItems}`);
 
-            algorithms
-                .forEach(algorithm => {
-                    console.time(`${algorithm.type} - ${algorithm.name}`);
-                    algorithm.sort(createValues());
-                    console.timeEnd(`${algorithm.type} - ${algorithm.name}`);
-                });
+            [bubbleSort, insertionSort, selectionSort, mergeSort, quickSort].forEach(algorithm => {
+                console.time(`${algorithm.type} - ${algorithm.name}`);
+                algorithm.sort(createValues());
+                console.timeEnd(`${algorithm.type} - ${algorithm.name}`);
+            });
         })();
     })();
 })(Math.round(Math.random() * 10000));
