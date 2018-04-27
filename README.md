@@ -1,6 +1,6 @@
 # sorting-algorithms
 Linear and divide and conquer sorting algorithms created in JavaScript.
-Is a simnple module to show the execution time of five different sorting algorithms
+Is a simple module to show the execution time of five different sorting algorithms
 
 ## Linear
 
