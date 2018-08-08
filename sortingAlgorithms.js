@@ -25,7 +25,7 @@
      * Best case performance: O(n) - good for small and nearly sorted data sets
      * Space required: O(n) - no space allocations needed because it operates in the input array
      */
-    var bubbleSort = bubbleSort || (function bubbleSortModule() {
+    let bubbleSort = (function bubbleSortModule() {
         function sort(items) {
             var swapped;
 
@@ -60,7 +60,7 @@
      * Best case performance: O(n) - good for small and nearly sorted data sets
      * Space required: O(n) - no space allocations needed because it operates in the input array
      */
-    var insertionSort = insertionSort || (function insertionSortModule() {
+    let insertionSort = (function insertionSortModule() {
         function swap(array, i, j) {
             var temp = array[i];
             array[i] = array[j];
@@ -100,7 +100,7 @@
      * Best case performance: O(n^2) - not good for large unsorted data sets
      * Space required: O(n) - no space allocations needed because it operates in the input array
      */
-    var selectionSort = selectionSort || (function selectionSortModule() {
+    let selectionSort = (function selectionSortModule() {
         function sort(items) {
             for (var i = 0; i < items.length; i++) {
                 var temp = items[i];
@@ -131,7 +131,7 @@
      * Best case performance: O(n log n) - good for large unsorted data sets, because whether the data is sorted or not it has to split the data into smaller arrays and recosntruct them 
      * Space required: O(n) - a lot of space requeried due the the data splits made into smaller arrays
      */
-    var mergeSort = mergeSort || (function mergeSortModule() {
+    let mergeSort = (function mergeSortModule() {
         function mergeTopDown(left, right) {
             var array = [];
 
@@ -172,7 +172,7 @@
      * Best case performance: O(n log n) - good for small and nearly sorted data sets
      * Space required: O(n) - no space allocations needed because it operates in the input array
      */
-    var quickSort = quickSort || (function quickSortModule() {
+    let quickSort = (function quickSortModule() {
         function swap(array, i, j) {
             var temp = array[i];
             array[i] = array[j];
